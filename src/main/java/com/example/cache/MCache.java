@@ -17,7 +17,7 @@ public class MCache {
 
         AtomicInteger first = counter.get(key);
 
-        if (first.getAndIncrement() == 1) {
+        if (first.getAndIncrement() == 0) {
             String dbValue = db.find(key);
             this.put(key, dbValue);
             return dbValue;
