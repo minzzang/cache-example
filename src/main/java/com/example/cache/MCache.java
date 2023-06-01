@@ -10,7 +10,6 @@ public class MCache {
     private final Repository db = new Repository();
 
     public String get(String key) {
-        System.out.println(key);
         CacheValue cacheValue = cache.computeIfAbsent(key, k -> init(key));
         if (!cacheValue.expired) {
             return cacheValue.value;
